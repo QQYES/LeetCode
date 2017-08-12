@@ -4,7 +4,13 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        return ' '.join(map(lambda x: x[::-1], s.split()))
+        result = []
+        s_list = s.split(' ')
+        for word in s_list:
+            re_word = word[::-1]
+            result.append(re_word)
+        result = ' '.join(result)
+        return result
 
 
 solution = Solution()
