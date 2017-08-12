@@ -1,6 +1,3 @@
-from conda.config import bits
-
-
 class Solution(object):
     def hammingDistance(self, x, y):
         """
@@ -23,4 +20,5 @@ class Solution(object):
 
 
 solution = Solution()
-solution.hammingDistance(1, 4)
+result = solution.hammingDistance(1, 4)
+print result
