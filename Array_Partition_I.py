@@ -5,14 +5,7 @@ class Solution(object):
         :rtype: int
         """
 
-        nums.sort()
-        sub_nums = []
-        i = 0
-        for num in nums:
-            if (i % 2) == 0:
-                sub_nums.append(num)
-            i = i + 1
-        return reduce(lambda x, y: x + y, sub_nums)
+        return sum(sorted(nums)[::2])
 
 
 solution = Solution()
