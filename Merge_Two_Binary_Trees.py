@@ -14,9 +14,9 @@ class Solution(object):
         """
         if not t1 or not t2:
             if t1:
-                tree_node = t1
+                tree_node = TreeNode(t1.val)
             elif t2:
-                tree_node = t2
+                tree_node = TreeNode(t2.val)
             else:
                 tree_node = None
         else:
