@@ -12,15 +12,9 @@ class Solution(object):
         :type t2: TreeNode
         :rtype: TreeNode
         """
-        if not t1 or not t2:
-            if t1:
-                tree_node = TreeNode(t1.val)
-            elif t2:
-                tree_node = TreeNode(t2.val)
-            else:
-                tree_node = None
-        else:
-            tree_node = TreeNode(t1.val + t2.val)
+
+        if t1 and not t2:
+            tree_node = TreeNode(t1.val)
             if not t1.left or not t2.left:
                 if t1.left:
                     tree_node.left = TreeNode(t1.left.val)
@@ -30,7 +24,8 @@ class Solution(object):
                     tree_node.left = None
             else:
                 tree_node.left = TreeNode(t1.left.val + t2.left.val)
-
+        elif t2 and not t1:
+            tree_node = TreeNode(t2.val)
             if not t1.right or not t2.right:
                 if t1.right:
                     tree_node.right = TreeNode(t1.right.val)
@@ -40,6 +35,10 @@ class Solution(object):
                     tree_node.right = None
             else:
                 tree_node.right = TreeNode(t1.right.val + t2.right.val)
+        elif not t1 and not t2:
+            tree_node = None
+        else:
+            tree_node = TreeNode(t1.val + t2.val)
         if tree_node:
             self.mergeTrees(tree_node.left, tree_node.right)
 
