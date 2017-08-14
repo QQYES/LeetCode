@@ -9,10 +9,13 @@ class Solution(object):
         com_b = b.split('+')
         result = complex(int(com_a[0]), int(com_a[1].replace('i', ''))) * complex(int(com_b[0]),
                                                                                   int(com_b[1].replace('i', '')))
-        print result
+        # print result
 
-
+        return str(int(result.real)) + '+' + str(int(result.imag)) + 'i'
 
 
 solution = Solution()
-print(solution.complexNumberMultiply("1+-1i", "1"))
+print(solution.complexNumberMultiply("1+-1i", "2+-3i"))
+
+
+
