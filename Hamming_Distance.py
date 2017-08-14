@@ -21,4 +21,4 @@ class Solution(object):
 
 solution = Solution()
 result = solution.hammingDistance(1, 4)
-print result
+print(result)
