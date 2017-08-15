@@ -5,21 +5,22 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         if isinstance(people, list):
-            flag = 1
-            while flag:
-
+            stop = 0
+            while not stop:
                 for i, person in enumerate(people):
+                    inner_stop = 0
                     if isinstance(person, list):
                         for j, person_com in enumerate(people):
                             count = 0
                             if count == person[1]:
-                                flag = 1
                                 break
                             if person_com[0] >= person[0]:
                                 people[j], people[i] = people[i], people[j]
                                 count += 1
-                                flag = 0
-                        break
+                                inner_stop = 1
+                    if i == len(people) - 1 and inner_stop == 0:
+                        stop = 1
+                    break
 
             return people
 
