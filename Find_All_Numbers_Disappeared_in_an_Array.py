@@ -4,11 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        if nums:
-            res = [i for i in range(1, len(nums) + 1)]
-            return list(set(res) - set(nums))
-        else:
-            return []
+
+        return list(set([i for i in range(1, len(nums) + 1)]) - set(nums))
 
 
 solution = Solution()
