@@ -6,10 +6,7 @@ class Solution(object):
         """
         if nums:
             res = [i for i in range(1, len(nums) + 1)]
-            for num in nums:
-                if num in res:
-                    res.remove(num)
-            return res
+            return list(set(res) - set(nums))
         else:
             return []
 
