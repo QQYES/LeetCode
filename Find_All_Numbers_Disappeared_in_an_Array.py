@@ -15,4 +15,4 @@ class Solution(object):
 
 
 solution = Solution()
-print(solution.findDisappearedNumbers([4,3,2,7,8,2,3,1]))
+print(solution.findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]))
