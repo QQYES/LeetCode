@@ -12,14 +12,15 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
+        if root:
+            if root.right:
+                root.val += root.right.val
+                self.convertBST(root.right)
 
-        if root.right:
-            root.val += root.right.val
-            return self.convertBST(root.right)
-
-        if root.left:
-            root.left.val += root.val
-            return self.convertBST(root.left)
+            if root.left:
+                root.left.val += root.val
+                self.convertBST(root.left)
+        return root
 
 
 solution = Solution()
