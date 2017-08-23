@@ -22,7 +22,6 @@ class Solution(object):
             while root:
                 s.append(root)
                 root = root.right
-
             if s:
                 root = s.pop()
                 root.val += sums
