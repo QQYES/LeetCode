@@ -19,7 +19,6 @@ class Solution(object):
         s = []
         while root or s:
             while root:
-
                 root.val += reduce(lambda x, y: x + y, [i for i in nodes if i > root.val])
                 s.append(root)
                 root = root.left
