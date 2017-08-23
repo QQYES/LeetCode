@@ -15,11 +15,14 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
+        res = root
         nodes = self.greater_add(root, [])
         s = []
         while root or s:
             while root:
-                root.val += reduce(lambda x, y: x + y, [i for i in nodes if i > root.val])
+                greater_vals = [i for i in nodes if i > root.val]
+                if greater_vals:
+                    root.val += reduce(lambda x, y: x + y, greater_vals)
                 s.append(root)
                 root = root.left
 
@@ -27,7 +30,7 @@ class Solution(object):
                 root = s.pop()
                 root = root.right
 
-        return root
+        return res
 
     def greater_add(self, root, nodes):
         """
