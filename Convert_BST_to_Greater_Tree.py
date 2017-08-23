@@ -13,14 +13,37 @@ class Solution(object):
         :rtype: TreeNode
         """
         if root:
+            root.val = self.greater_add(root, root.val)
             if root.right:
-                root.val += root.right.val
                 self.convertBST(root.right)
-
             if root.left:
-                root.left.val += root.val
                 self.convertBST(root.left)
         return root
+
+    def greater_add(self, root, val):
+        """
+        :param root: TreeNode
+        :param val: int
+        :return: int
+        """
+        if root:
+            if val < root.val:
+                val += root.val
+            if root.right:
+                self.greater_add(root.right)
+            if root.left:
+                self.greater_add(root.left)
+        return val
+
+    def visit(self, root, nodes):
+        """
+        :param root: TreeNode
+        :return: TreeNode
+        """
+        if root.left:
+            self.visit(root.left, nodes)
+        if root.right:
+            self.visit(root.left, nodes)
 
 
 solution = Solution()
