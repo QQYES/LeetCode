@@ -16,35 +16,20 @@ class Solution(object):
         :rtype: TreeNode
         """
         res = root
-        nodes = self.greater_add(root, [])
         s = []
+        sums = 0
         while root or s:
             while root:
-                greater_vals = [i for i in nodes if i > root.val]
-                if greater_vals:
-                    root.val += reduce(lambda x, y: x + y, greater_vals)
                 s.append(root)
-                root = root.left
+                root = root.right
 
             if s:
                 root = s.pop()
-                root = root.right
+                root.val += sums
+                sums = root.val
+                root = root.left
 
         return res
-
-    def greater_add(self, root, nodes):
-        """
-        :param root: TreeNode
-        :param nodes: list
-        :return: int
-        """
-        if root:
-            nodes.append(root.val)
-            if root.right:
-                self.greater_add(root.right, nodes)
-            if root.left:
-                self.greater_add(root.left, nodes)
-        return nodes
 
 
 solution = Solution()
