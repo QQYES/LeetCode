@@ -27,4 +27,7 @@ class Solution(object):
         if root:
             count_l = visit(root.left, 0)
             count_r = visit(root.right, 0)
-            return count_l + count_r + 1
+            return count_l + count_r
+        else:
+            return 0
+
