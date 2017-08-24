@@ -16,6 +16,3 @@ class Solution(object):
 
 solution = Solution()
 print(solution.complexNumberMultiply("1+-1i", "2+-3i"))
-
-
-
