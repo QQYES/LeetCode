@@ -11,25 +11,23 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        def get_depth(roots):
+        def get_depth(roots, sums):
             """
+            :param sums: list
             :param roots: TreeNode
             :return: int
             """
             if roots:
-                l_depth = get_depth(roots.left)
-                r_depth = get_depth(roots.right)
-                if l_depth >= r_depth:
-                    return l_depth + 1
-                else:
-                    return r_depth + 1
+                l_depth = get_depth(roots.left, sums)
+                r_depth = get_depth(roots.right, sums)
+                sums.append(l_depth + r_depth)
+                return max(l_depth, r_depth) + 1
             else:
                 return 0
-
-        if root:
-            count_l = get_depth(root.left)
-            count_r = get_depth(root.right)
-            return count_l + count_r
+        res = []
+        get_depth(root, res)
+        if res:
+            return max(res)
         else:
             return 0
 
@@ -40,5 +38,5 @@ tree_node.left = TreeNode(2)
 tree_node.left.left = TreeNode(4)
 tree_node.left.right = TreeNode(5)
 tree_node.right = TreeNode(3)
-res = solution.diameterOfBinaryTree(tree_node)
-print(res)
+result = solution.diameterOfBinaryTree(tree_node)
+print(result)
