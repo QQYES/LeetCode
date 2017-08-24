@@ -12,7 +12,19 @@ class Solution(object):
         :type t2: TreeNode
         :rtype: TreeNode
         """
-        s = []
-        while t1 or len(s) != 0:
-            if t1:
 
+        root = TreeNode(None)
+        if t1 and t2:
+            root.val = t1.val + t2.val
+            root.left = self.mergeTrees(t1.left, t2.left)
+            root.right = self.mergeTrees(t1.right, t2.right)
+        elif t1 or t2:
+            if t1:
+                root.val = t1.val
+                root.left = self.mergeTrees(t1.left, None)
+                root.right = self.mergeTrees(t1.right, None)
+            if t2:
+                root.val = t2.val
+                root.left = self.mergeTrees(None, t2.left)
+                root.right = self.mergeTrees(None, t2.right)
+        return root
