@@ -11,22 +11,24 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-
-        def visit(roots, count):
+        def get_depth(roots):
             """
-            :param count: int
             :param roots: TreeNode
             :return: int
             """
             if roots:
-                count += 1
-                visit(roots.left, count)
-                visit(roots.right, count)
-            return count
+                l_depth = get_depth(roots.left)
+                r_depth = get_depth(roots.right)
+                if l_depth >= r_depth:
+                    return l_depth + 1
+                else:
+                    return r_depth + 1
+            else:
+                return 0
 
         if root:
-            count_l = visit(root.left, 0)
-            count_r = visit(root.right, 0)
+            count_l = get_depth(root.left)
+            count_r = get_depth(root.right)
             return count_l + count_r
         else:
             return 0
