@@ -31,3 +31,12 @@ class Solution(object):
         else:
             return 0
 
+
+solution = Solution()
+tree_node = TreeNode(1)
+tree_node.left = TreeNode(2)
+tree_node.left.left = TreeNode(4)
+tree_node.left.right = TreeNode(5)
+tree_node.right = TreeNode(3)
+res = solution.diameterOfBinaryTree(tree_node)
+print(res)
