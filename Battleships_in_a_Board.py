@@ -11,19 +11,19 @@ class Solution(object):
             for j in range(len(board[i])):
                 if i != 0:
                     if j != 0:
-                        if board[i][j] == '+':
-                            if board[i - 1][j] == '.' and board[i][j] == '.':
+                        if board[i][j] == 'X':
+                            if board[i - 1][j] == '.' and board[i][j-1] == '.':
                                 count += 1
                     else:
-                        if board[i][j] == '+':
+                        if board[i][j] == 'X':
                             if board[i - 1][j] == '.':
                                 count += 1
                 else:
                     if j != 0:
-                        if board[i][j] == '+':
+                        if board[i][j] == 'X':
                             if board[i][j - 1] == '.':
                                 count += 1
                     else:
-                        if board[i][j] == '+':
+                        if board[i][j] == 'X':
                             count += 1
         return count
