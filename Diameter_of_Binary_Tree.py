@@ -13,7 +13,7 @@ class Solution(object):
         """
         def get_depth(roots, sums):
             """
-            :param sums: list
+            :param sums: List
             :param roots: TreeNode
             :return: int
             """
