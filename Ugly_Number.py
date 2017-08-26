@@ -7,19 +7,15 @@ class Solution(object):
         :type num: int
         :rtype: bool
         """
-        if num <= 0:
-            return False
-        elif num == 1:
-            return True
-        else:
-            while num > 1:
-                for i in range(2, num + 1):
-                    if num % i == 0:
-                        if i not in (2, 3, 5):
-                            return False
-                        else:
-                            num = int(num / i)
-                            break
+        while num > 1:
+            if num % 2 == 0:
+                num /= 2
+            elif num % 3 == 0:
+                num /= 3
+            elif num % 5 == 0:
+                num /= 5
+            else:
+                return False
         return True
 
 
