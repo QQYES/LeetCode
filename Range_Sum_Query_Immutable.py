@@ -3,6 +3,9 @@ class NumArray(object):
         """
         :type nums: List[int]
         """
+        sums = 0
+        for index, num in enumerate(nums):
+            self.dp[index] =
 
     def sumRange(self, i, j):
         """
@@ -10,10 +13,14 @@ class NumArray(object):
         :type j: int
         :rtype: int
         """
+        return sum(self.nums[i:j + 1])
 
 
 # Your NumArray object will be instantiated and called as such:
-nums = []
+nums = [-2, 0, 3, -5, 2, -1]
+
 obj = NumArray(nums)
-i = j = 0
+i = 0
+j = 2
 param_1 = obj.sumRange(i, j)
+print(param_1)
