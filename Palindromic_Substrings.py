@@ -17,4 +17,4 @@ class Solution(object):
 
 
 solution = Solution()
-print(solution.countSubstrings('abc'))
+print(solution.countSubstrings('aaa'))
