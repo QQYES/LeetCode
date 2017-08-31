@@ -12,3 +12,14 @@ class Solution(object):
         :type t: TreeNode
         :rtype: bool
         """
+        while s and t:
+            if s.val == t.val:
+                self.isSubtree(s.left, t.left)
+                self.isSubtree(s.right, t.right)
+            else:
+                self.isSubtree(s.left, t)
+                self.isSubtree(s.right, t)
+        if t is None:
+            return True
+        else:
+            return False
