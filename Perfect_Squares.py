@@ -8,13 +8,17 @@ class Solution(object):
         :rtype: int
         """
         dp = []
-        while n > 0:
-            count = 0
-            i = int(floor(n ** 0.5))
-            while i > 0:
-                n -= i ** 2
-                count += 1
-                i = int(floor(n ** 0.5))
+        for index in range(1, n + 1):
+            if index == 1:
+                dp[index] = 1
+            else:
+                for i in range(1, index + 1):
+                    num = index
+                    while num>0:
+                        count = 0
+                        i += i ** 2
+                        count += 1
+                        if i == index:
 
 
 solution = Solution()
