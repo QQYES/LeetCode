@@ -10,19 +10,14 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        tmp = []
+        tail = None
         while head:
-            tmp.append(head.val)
-            head = head.next
-        if len(tmp) == 1:
-            head = ListNode(tmp[0])
-        elif len(tmp) > 0:
-            last = ListNode(tmp[0])
-            for i in range(1, len(tmp)):
-                head = ListNode(tmp[i])
-                head.next = last
-                last = head
-        return head
+            tmp = head.next
+            head.next = tail
+            tail = head
+            head = tmp
+
+        return tail
 
 
 solution = Solution()
