@@ -19,7 +19,6 @@ class Solution(object):
             :param t_tree: TreeNode
             :return: None
             """
-
             if s_tree is None and t_tree is None:
                 return True
             if s_tree is None or t_tree is None:
