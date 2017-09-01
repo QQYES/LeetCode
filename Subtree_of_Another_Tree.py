@@ -13,12 +13,10 @@ class Solution(object):
         :type t: TreeNode
         :rtype: bool
         """
-
         def compare(s_tree, t_tree):
             """
             :param s_tree: TreeNode
             :param t_tree: TreeNode
-            :param count: List[int]
             :return: None
             """
             while s_tree and t_tree:
