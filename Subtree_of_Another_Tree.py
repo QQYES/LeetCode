@@ -8,25 +8,25 @@ class TreeNode(object):
 class Solution(object):
     def isSubtree(self, s, t):
         """
-        :param count:
         :type s: TreeNode
         :type t: TreeNode
         :rtype: bool
         """
+
         def compare(s_tree, t_tree):
             """
             :param s_tree: TreeNode
             :param t_tree: TreeNode
             :return: None
             """
-            while s_tree and t_tree:
-                if s_tree is None and t_tree is None:
-                    return True
-                if s_tree is None or t_tree is None:
-                    return False
-                if s_tree.val != t_tree.val:
-                    return False
-                return compare(s_tree.left, t_tree.left) and compare(s_tree.right, t_tree.right)
+
+            if s_tree is None and t_tree is None:
+                return True
+            if s_tree is None or t_tree is None:
+                return False
+            if s_tree.val != t_tree.val:
+                return False
+            return compare(s_tree.left, t_tree.left) and compare(s_tree.right, t_tree.right)
 
         if s is None:
             return False
