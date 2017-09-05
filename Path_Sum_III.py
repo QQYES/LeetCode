@@ -26,10 +26,10 @@ class Solution(object):
             """
 
             if r:
+                l.append(r.val)
                 if len(l) != 0:
                     if reduce(lambda x, y: x + y, l) == s:
                         count.append(1)
-                l.append(r.val)
                 sub_sum(r.left, l, sub_count, s)
                 sub_sum(r.right, l, sub_count, s)
 
