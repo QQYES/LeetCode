@@ -14,11 +14,10 @@ class Solution(object):
             else:
                 for i in range(1, index + 1):
                     num = index
-                    while num>0:
+                    while num > 0:
                         count = 0
                         i += i ** 2
                         count += 1
-                        if i == index:
 
 
 solution = Solution()
