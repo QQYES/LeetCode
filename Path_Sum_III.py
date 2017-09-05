@@ -17,8 +17,9 @@ class Solution(object):
         :rtype: int
         """
 
-        def sub_sum(r, l, sub_count, s):
+        def sub_sum(r, l, sub_count, in_s):
             """
+            :param in_s: List
             :param sub_count: List
             :param r: TreeNode
             :param l: List
@@ -26,19 +27,18 @@ class Solution(object):
             """
 
             if r:
+                sub_sum(r.left, l, sub_count, in_s)
                 l.append(r.val)
-                if len(l) != 0:
-                    if reduce(lambda x, y: x + y, l) == s:
-                        count.append(1)
-                sub_sum(r.left, l, sub_count, s)
-                sub_sum(r.right, l, sub_count, s)
+                if reduce(lambda x, y: x + y, l) == in_s:
+                    count.append(1)
+                sub_sum(r.right, l, sub_count, in_s)
 
-        def visit(root, out_count, s):
-            if root:
+        def visit(out_root, out_count, s):
+            if out_root:
                 l = []
-                sub_sum(root, l, out_count, s)
-                visit(root.left, out_count, s)
-                visit(root.right, out_count, s)
+                sub_sum(out_root, l, out_count, s)
+                visit(out_root.left, out_count, s)
+                visit(out_root.right, out_count, s)
 
         count = []
         visit(root, count, sum)
@@ -49,5 +49,14 @@ class Solution(object):
 
 
 solution = Solution()
-s = TreeNode(1)
-print(solution.pathSum(s, 1))
+s = TreeNode(10)
+s.left = TreeNode(5)
+s.left.left = TreeNode(3)
+s.left.right = TreeNode(2)
+s.left.left.left = TreeNode(3)
+s.left.right.right = TreeNode(-2)
+
+s.right = TreeNode(-3)
+s.right.right = TreeNode(11)
+
+print(solution.pathSum(s, 8))
