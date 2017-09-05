@@ -13,24 +13,26 @@ class Solution(object):
         :rtype: bool
         """
 
-        def visit(root, l):
+        def compare(s_tree, t_tree):
             """
-            :param root: TreeNode
-            :param l: List[int]
+            :param s_tree: TreeNode
+            :param t_tree: TreeNode
+            :return: None
             """
-            if root:
-                l.append(str(root.val))
-                visit(root.left, l)
-                visit(root.right, l)
+            if s_tree is None and t_tree is None:
+                return True
+            if s_tree is None or t_tree is None:
+                return False
+            if s_tree.val != t_tree.val:
+                return False
+            return compare(s_tree.left, t_tree.left) and compare(s_tree.right, t_tree.right)
 
-        s_list = []
-        t_list = []
-        visit(s, s_list)
-        visit(t, t_list)
-        if ''.join(s_list).__contains__(''.join(t_list)):
-            return True
-        else:
+        if s is None:
             return False
+        if compare(s, t):
+            return True
+        return self.isSubtree(s.left, t) or self.isSubtree(s.right, t)
+
 
 
 solution = Solution()
