@@ -16,20 +16,20 @@ class Solution(object):
         def visit(root, l):
             """
             :param root: TreeNode
-            :param l: List[int]
+            :param l: str
             """
             if root:
-                l.append('^' + str(root.val) + '#')
+                l += '^' + str(root.val) + '#'
                 visit(root.left, l)
                 visit(root.right, l)
             else:
-                l.append('$')
+                l += '$'
 
-        s_list = []
-        t_list = []
+        s_list = ''
+        t_list = ''
         visit(s, s_list)
         visit(t, t_list)
-        if ''.join(s_list).__contains__(''.join(t_list)):
+        if t_list in s_list:
             return True
         else:
             return False
