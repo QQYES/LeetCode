@@ -27,18 +27,19 @@ class Solution(object):
             """
 
             if r:
-                sub_sum(r.left, l, sub_count, in_s)
                 l.append(r.val)
                 if reduce(lambda x, y: x + y, l) == in_s:
                     count.append(1)
+                sub_sum(r.left, l, sub_count, in_s)
+                l.pop()
                 sub_sum(r.right, l, sub_count, in_s)
 
-        def visit(out_root, out_count, s):
+        def visit(out_root, out_count, out_s):
             if out_root:
                 l = []
-                sub_sum(out_root, l, out_count, s)
-                visit(out_root.left, out_count, s)
-                visit(out_root.right, out_count, s)
+                sub_sum(out_root, l, out_count, out_s)
+                visit(out_root.left, out_count, out_s)
+                visit(out_root.right, out_count, out_s)
 
         count = []
         visit(root, count, sum)
