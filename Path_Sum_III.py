@@ -28,10 +28,14 @@ class Solution(object):
 
             if r:
                 l.append(r.val)
-                if reduce(lambda x, y: x + y, l) == in_s:
-                    count.append(1)
+                if len(l) != 0:
+                    if reduce(lambda x, y: x + y, l) == in_s:
+                        count.append(1)
                 sub_sum(r.left, l, sub_count, in_s)
                 l.pop()
+                if len(l) != 0:
+                    if reduce(lambda x, y: x + y, l) == in_s:
+                        count.append(1)
                 sub_sum(r.right, l, sub_count, in_s)
 
         def visit(out_root, out_count, out_s):
