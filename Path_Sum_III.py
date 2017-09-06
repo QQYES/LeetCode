@@ -59,8 +59,7 @@ s.left = TreeNode(5)
 s.left.left = TreeNode(3)
 s.left.right = TreeNode(2)
 s.left.left.left = TreeNode(3)
-s.left.right.right = TreeNode(-2)
-
+s.left.left.right = TreeNode(-2)
 s.right = TreeNode(-3)
 s.right.right = TreeNode(11)
 
