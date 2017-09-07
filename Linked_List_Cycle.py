@@ -13,11 +13,13 @@ class Solution(object):
         """
         if head is None or head.next is None:
             return False
-        time = 0
+        mem = set()
+        mem.add(head)
         while head:
             head = head.next
-            time += 1
-            if time > 100000:
+            if head not in mem:
+                mem.add(head)
+            else:
                 return True
         return False
 
