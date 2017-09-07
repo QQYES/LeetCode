@@ -27,9 +27,12 @@ class Solution(object):
             """
 
             if r:
-                l.append(r.val)
                 if len(l) != 0:
-                    if reduce(lambda x, y: x + y, l) == in_s:
+                    l.append(l[-1] + r.val)
+                else:
+                    l.append(r.val)
+                if len(l) != 0:
+                    if l[-1] == in_s:
                         count.append(1)
                 sub_sum(r.left, l, sub_count, in_s)
                 sub_sum(r.right, l, sub_count, in_s)
@@ -45,7 +48,7 @@ class Solution(object):
         count = []
         visit(root, count, sum)
         if len(count) != 0:
-            return reduce(lambda x, y: x + y, count)
+            return len(count)
         else:
             return 0
 
