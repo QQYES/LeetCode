@@ -37,6 +37,9 @@ class Solution(object):
                     if reduce(lambda x, y: x + y, l) == in_s:
                         count.append(1)
                 sub_sum(r.right, l, sub_count, in_s)
+                if len(l) != 0:
+                    if reduce(lambda x, y: x + y, l) == in_s:
+                        count.append(1)
 
         def visit(out_root, out_count, out_s):
             if out_root:
