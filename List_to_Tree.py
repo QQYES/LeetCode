@@ -12,19 +12,19 @@ def run(l):
     for index in range(1, len(l), 2):
         if l[index] != 'null':
             left = TreeNode(l[index])
+            queue.append(left)
         else:
             left = None
-        queue.append(left)
+
         if l[index + 1] != 'null':
             right = TreeNode(l[index + 1])
+            queue.append(right)
         else:
             right = None
-        queue.append(right)
         if len(queue) != 0:
             p = queue.pop(0)
-            if p:
-                p.left = left
-                p.right = right
+            p.left = left
+            p.right = right
     return head
 
 
