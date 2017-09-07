@@ -13,14 +13,11 @@ class Solution(object):
         """
         if head is None or head.next is None:
             return False
-
-        mem = [head]
+        time = 0
         while head:
             head = head.next
-
-            if head not in mem:
-                mem.append(head)
-            else:
+            time += 1
+            if time > 100000:
                 return True
         return False
 
