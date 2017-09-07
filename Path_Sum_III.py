@@ -32,12 +32,7 @@ class Solution(object):
                     if reduce(lambda x, y: x + y, l) == in_s:
                         count.append(1)
                 sub_sum(r.left, l, sub_count, in_s)
-
                 sub_sum(r.right, l, sub_count, in_s)
-
-                if len(l) != 0:
-                    if reduce(lambda x, y: x + y, l) == in_s:
-                        count.append(1)
                 l.pop()
 
         def visit(out_root, out_count, out_s):
@@ -60,6 +55,7 @@ s = TreeNode(10)
 s.left = TreeNode(5)
 s.left.left = TreeNode(3)
 s.left.right = TreeNode(2)
+s.left.right.right = TreeNode(1)
 s.left.left.left = TreeNode(3)
 s.left.left.right = TreeNode(-2)
 s.right = TreeNode(-3)
