@@ -11,16 +11,12 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        if head is None or head.next is None:
-            return False
         mem = set()
-        mem.add(head)
         while head:
-            head = head.next
-            if head not in mem:
-                mem.add(head)
-            else:
+            if head in mem:
                 return True
+            mem.add(head)
+            head = head.next
         return False
 
 
