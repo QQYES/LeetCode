@@ -11,17 +11,21 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        mem = set()
-        while head:
-            if head in mem:
-                return True
-            mem.add(head)
-            head = head.next
-        return False
+        try:
+            walker = head
+            runner = head.next.next
+            while walker and runner:
+                if runner is walker:
+                    return True
+                walker = walker.next
+                runner = runner.next.next
+            return False
+        except:
+            return False
 
 
 s = Solution()
 l = ListNode(1)
-l.next = ListNode(2)
+l.next = l
 res = s.hasCycle(l)
 print(res)
