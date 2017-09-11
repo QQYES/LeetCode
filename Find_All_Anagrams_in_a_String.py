@@ -5,6 +5,8 @@ class Solution(object):
         :type p: str
         :rtype: List[int]
         """
+        if len(p) > len(s):
+            return []
         from itertools import permutations
         res = []
         p_com = [item for item in permutations(p)]
