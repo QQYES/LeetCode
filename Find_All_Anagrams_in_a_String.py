@@ -5,11 +5,12 @@ class Solution(object):
         :type p: str
         :rtype: List[int]
         """
+        from itertools import permutations
         res = []
-        p_set = set(p)
+        p_com = [item for item in permutations(p)]
         p_len = len(p)
         for i in range(len(s)):
-            if p_set == set(s[i:p_len]):
+            if tuple(s[i:i + p_len]) in p_com:
                 res.append(i)
         return res
 
