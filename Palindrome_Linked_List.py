@@ -1,5 +1,6 @@
 # Definition for singly-linked list.
-from math import floor
+
+import math
 
 
 class ListNode(object):
@@ -21,10 +22,7 @@ class Solution(object):
         if len(mem) <= 1:
             return True
         if len(mem) > 1:
-            tmp1 = mem[:int((len(mem) / 2))]
-            tmp2 = [item for item in reversed(mem[int(len(mem) / 2):])]
-            # if mem[:(len(mem) / 2)] == reversed(mem[len(mem) / 2:]):
-            if tmp1 == tmp2:
+            if mem[:int((len(mem) / 2))] == [item for item in reversed(mem[int(round(len(mem) / 2)):])]:
                 return True
 
         return False
