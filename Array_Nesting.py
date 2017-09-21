@@ -4,3 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        mem = []
+        for i in range(len(nums)):
+            s = set()
+            s.add(nums[i])
+            begin = i
+            while i != nums[begin]:
+                begin = nums[begin]
+                s.add(nums[begin])
+            mem.append(len(s))
+        return max(mem)
+
+
+solution = Solution()
+print(solution.arrayNesting([5, 4, 0, 3, 1, 6, 2]))
