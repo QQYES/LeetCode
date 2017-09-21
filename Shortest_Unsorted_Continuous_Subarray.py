@@ -12,7 +12,7 @@ class Solution(object):
                 left = i
                 break
         for j in range(len(nums) - 1, 0, -1):
-            if s_res[i] != nums[i]:
+            if s_res[j] != nums[j]:
                 right = j
                 break
         return right - left
