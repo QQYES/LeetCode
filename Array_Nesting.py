@@ -6,20 +6,19 @@ class Solution(object):
         """
         mem = {}
         for i in range(len(nums)):
+            if i in mem.keys():
+                continue
             s = set()
             s.add(nums[i])
             begin = i
             while i != nums[begin]:
                 begin = nums[begin]
-                if begin in mem.keys():
-                    mem.setdefault(i, len(s) + mem.get(begin))
-                    break
                 s.add(nums[begin])
             if i in mem.keys():
                 pass
             else:
                 mem.setdefault(i, len(s))
-        return max(mem, key=mem.get)
+        return max(mem.items(), key=lambda d: d[1])[1]
 
 
 solution = Solution()
