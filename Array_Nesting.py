@@ -6,12 +6,13 @@ class Solution(object):
         """
         mem = {}
         for i in range(len(nums)):
-            if i in mem.keys():
-                continue
             s = set()
             s.add(nums[i])
             begin = i
             while i != nums[begin]:
+                if begin in mem.keys():
+                    mem.setdefault(i, mem[begin] - len(s))
+                    break
                 begin = nums[begin]
                 s.add(nums[begin])
             if i in mem.keys():
