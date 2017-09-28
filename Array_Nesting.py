@@ -11,7 +11,7 @@ class Solution(object):
             begin = i
             while i != nums[begin]:
                 if begin in mem.keys():
-                    mem.setdefault(i, mem[begin] - len(s))
+                    mem.setdefault(i, mem[begin])
                     break
                 begin = nums[begin]
                 s.add(nums[begin])
